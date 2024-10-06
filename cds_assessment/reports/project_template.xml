@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_project_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="cds_assessment.external_layout">
+                    <div class="page">
+                        <h1 style="text-align: center;">Project Report</h1>
+                        <h2>Project Details</h2>
+                        <br/>
+                        <p>
+                            <strong>Project Name:</strong>
+                            <span t-field="doc.name"/>
+                        </p>
+                        <p>
+                            <strong>Project Date:</strong>
+                            <span t-field="doc.date"/>
+                        </p>
+                        <p>
+                            <strong>GitHub Repo Name:</strong>
+                            <span t-field="doc.github_repo_name"/>
+                        </p>
+                        <p>
+                            <strong>GitHub Repo URL:</strong>
+                            <span t-field="doc.github_repo_url"/>
+                        </p>
+                        <p>
+                            <strong>Odoo Version:</strong>
+                            <span t-field="doc.odoo_version"/>
+                        </p>
+                        <p>
+                            <strong>Odoo Type:</strong>
+                            <span t-field="doc.odoo_type"/>
+                        </p>
+                        <p>
+                            <strong>Hosting:</strong>
+                            <span t-field="doc.hosting"/>
+                        </p>
+                        <br/>
+                        <h2>Collaborators</h2>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Employee</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="doc.collaborator_ids" t-as="line">
+                                    <tr>
+                                        <td style="text-align:center">
+                                            <span t-field="line.employee_id.name"/>
+                                        </td>
+                                        <td style="text-align:center">
+                                            <span t-field="line.status"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

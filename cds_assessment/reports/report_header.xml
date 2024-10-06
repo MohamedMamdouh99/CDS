@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="external_layout">
+        <div class="header">
+            <div style="display: inline-block; vertical-align: top;">
+                <img src='/web/binary/company_logo' class="float-left"
+                     alt="Logo"/>
+            </div>
+            <div style="display: inline-block; margin-left: 10px;">
+                <strong>Website:</strong>
+                <span t-field="docs.company_id.website"/>
+                <br/><strong>Emial:</strong>
+                <span t-field="docs.company_id.email"/>
+                <br/>
+                <strong>Phone:</strong>
+                <span t-field="docs.company_id.phone"/>
+                <br/>
+                <strong>VAT:</strong>
+                <span t-field="docs.company_id.vat"/>
+                <br/>
+                <strong>Address:</strong>
+                <span t-field="docs.company_id.street"/>
+                -
+                <span t-field="docs.company_id.street2"/>
+                -
+                <span t-field="docs.company_id.city"/>
+                -
+                <span t-field="docs.company_id.state_id.name"/>
+                -
+                <span t-field="docs.company_id.zip"/>
+                -
+                <span t-field="docs.company_id.country_id.name"/>
+            </div>
+        </div>
+        <div class="article">
+            <t t-raw="0"/>
+        </div>
+
+        <div class="footer">
+            <div style="width: 50%; float: right; text-align:right">
+                page
+                <span class="page"/>
+                of
+                <span class="topage"/>
+            </div>
+            <div style="width: 50%; float: left">
+                <span t-esc="time.strftime('%A, %B %d, %Y')"/>
+            </div>
+        </div>
+    </template>
+
+
+</odoo>
